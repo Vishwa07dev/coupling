@@ -3,14 +3,18 @@ package com.upgrad.di;
 /**
  * Main application code.
  */
-public class MyApplication {
+public class MyApplication  implements Sender{
 
-  /**
-   * Any issue with below ?
-   */
-  EmailService emailService = new EmailService();
 
-  public void process(String str , String rec){
-    emailService.sendEmail(str,rec);
+  private MessageService messageService ;
+
+  public MyApplication(MessageService messageService){
+    this.messageService= messageService;
+  }
+
+  @Override
+  public void processMessage(String message, String rec) {
+    messageService.sendMessage(message,rec);
+
   }
 }

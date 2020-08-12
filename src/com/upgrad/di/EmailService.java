@@ -3,10 +3,13 @@ package com.upgrad.di;
 /**
  *  Email service to send email
  */
-public class EmailService {
+public class EmailService implements MessageService {
 
-  public void sendEmail(String message , String receiver){
 
-    System.out.println("Email send to : "+ receiver + " with message : "+ message);
+  @Override
+  public void sendMessage(String msg, String rec) {
+
+    System.out.println("Email send to : "+ rec + " with message : "+ msg);
+
   }
 }
